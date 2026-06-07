@@ -5,6 +5,7 @@
 
 typedef struct {
     int  client_fd;
+    int  client_id;
     char client_ip[64];
     int  client_port;
     int  latest_version;

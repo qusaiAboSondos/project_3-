@@ -1,6 +1,8 @@
 #include "server.h"
+#include "visualizer.h"
 #include "../common/logger.h"
 #include "../common/config.h"
+#include "../common/shared_state.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,6 +17,9 @@
 #define MSG_UPDATE_AVAILABLE  "UPDATE_AVAILABLE"
 #define MSG_UP_TO_DATE        "UP_TO_DATE"
 
+static int g_client_id_counter = 0;
+static pthread_mutex_t g_id_lock = PTHREAD_MUTEX_INITIALIZER;
+
 /* ---------- per-client thread ---------- */
 
 void *handle_client(void *arg) {
@@ -23,6 +28,7 @@ void *handle_client(void *arg) {
     snprintf(client_info, sizeof(client_info), "%s:%d", ca->client_ip, ca->client_port);
 
     LOG_INFO_EV(client_info, "Client connected");
+    shared_state_set(ca->client_id, CS_CONNECTED, 0, 0.0f, ca->client_ip);
 
     /* 1. Receive client version */
     char buf[64] = {0};
@@ -36,10 +42,12 @@ void *handle_client(void *arg) {
     int client_version = atoi(buf);
     LOG_INFO_EV(client_info, "Version request received: client_version=%d latest_version=%d",
                 client_version, ca->latest_version);
+    shared_state_set(ca->client_id, CS_CHECKING, client_version, 0.0f, ca->client_ip);
 
     /* 2. Compare versions and respond */
     if (client_version < ca->latest_version) {
         LOG_INFO_EV(client_info, "Update required, sending notification");
+        shared_state_set(ca->client_id, CS_DOWNLOADING, client_version, 0.0f, ca->client_ip);
 
         /* 3. Send update file */
         FILE *f = fopen(ca->update_file, "rb");
@@ -66,20 +74,25 @@ void *handle_client(void *arg) {
             ssize_t sent = send(ca->client_fd, transfer_buf, bytes_read, 0);
             if (sent < 0) {
                 LOG_ERROR_EV(client_info, "Send error during file transfer: %s", strerror(errno));
+                shared_state_set(ca->client_id, CS_ERROR, client_version, 0.0f, ca->client_ip);
                 free(transfer_buf);
                 fclose(f);
                 goto cleanup;
             }
             sent_total += sent;
+            float progress = fsize > 0 ? (float)sent_total / (float)fsize : 1.0f;
+            shared_state_set(ca->client_id, CS_DOWNLOADING, client_version, progress, ca->client_ip);
         }
 
         free(transfer_buf);
         fclose(f);
         LOG_INFO_EV(client_info, "Update file sent successfully (%ld bytes)", sent_total);
+        shared_state_set(ca->client_id, CS_DONE, ca->latest_version, 1.0f, ca->client_ip);
 
     } else {
         LOG_INFO_EV(client_info, "Client is up to date");
         send(ca->client_fd, MSG_UP_TO_DATE, strlen(MSG_UP_TO_DATE), 0);
+        shared_state_set(ca->client_id, CS_UP_TO_DATE, client_version, 1.0f, ca->client_ip);
     }
 
 cleanup:
@@ -100,6 +113,7 @@ int start_server(const Config *cfg) {
     const char *logfile = config_get(cfg, "LOG_FILE",   "logs/server.log");
 
     logger_init(logfile, 1);
+    shared_state_init(latest_ver);
     LOG_INFO_EV(NULL, "Server starting on port %d", port);
 
     int server_fd = socket(AF_INET, SOCK_STREAM, 0);
@@ -142,9 +156,15 @@ int start_server(const Config *cfg) {
         ClientArgs *ca = malloc(sizeof(ClientArgs));
         if (!ca) { close(client_fd); continue; }
 
-        ca->client_fd     = client_fd;
+        ca->client_fd      = client_fd;
         ca->latest_version = latest_ver;
-        ca->buffer_size   = buffer_size;
+        ca->buffer_size    = buffer_size;
+
+        pthread_mutex_lock(&g_id_lock);
+        ca->client_id = ++g_client_id_counter;
+        pthread_mutex_unlock(&g_id_lock);
+
+        shared_state_set(ca->client_id, CS_CONNECTING, 0, 0.0f, NULL);
         strncpy(ca->update_file, upfile, sizeof(ca->update_file) - 1);
         inet_ntop(AF_INET, &client_addr.sin_addr, ca->client_ip, sizeof(ca->client_ip));
         ca->client_port = ntohs(client_addr.sin_port);
@@ -170,6 +190,16 @@ int start_server(const Config *cfg) {
     return 0;
 }
 
+/* ---------- visualizer thread wrapper ---------- */
+
+typedef struct { int argc; char **argv; } GlutArgs;
+
+static void *visualizer_thread(void *arg) {
+    GlutArgs *ga = (GlutArgs *)arg;
+    visualizer_run(&ga->argc, ga->argv);
+    return NULL;
+}
+
 /* ---------- main ---------- */
 
 int main(int argc, char *argv[]) {
@@ -179,6 +209,17 @@ int main(int argc, char *argv[]) {
     if (config_load(&cfg, config_file) != 0) {
         fprintf(stderr, "Failed to load config: %s\n", config_file);
         return 1;
+    }
+
+    /* start OpenGL visualizer only if DISPLAY is available */
+    const char *display = getenv("DISPLAY");
+    if (display && display[0] != '\0') {
+        GlutArgs ga = { argc, argv };
+        pthread_t vis_tid;
+        pthread_create(&vis_tid, NULL, visualizer_thread, &ga);
+        pthread_detach(vis_tid);
+    } else {
+        fprintf(stdout, "[INFO] No DISPLAY found, running without GUI.\n");
     }
 
     return start_server(&cfg);

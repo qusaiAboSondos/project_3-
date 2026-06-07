@@ -67,3 +67,13 @@
 [2026-06-07 12:05:07] [INFO ] [TID:139877819610816] [127.0.0.1:42354] Update required, sending notification
 [2026-06-07 12:05:07] [INFO ] [TID:139877819610816] [127.0.0.1:42354] Update file sent successfully (43 bytes)
 [2026-06-07 12:05:07] [INFO ] [TID:139877819610816] [127.0.0.1:42354] Connection closed
+[2026-06-07 12:09:41] [INFO ] [TID:140335969806144] [-] Server starting on port 8080
+[2026-06-07 12:09:41] [INFO ] [TID:140335969806144] [-] Server listening. Latest version: 3
+[2026-06-07 12:09:57] [INFO ] [TID:139733659518784] [-] Server starting on port 8080
+[2026-06-07 12:09:57] [INFO ] [TID:139733659518784] [-] Server listening. Latest version: 3
+[2026-06-07 12:09:58] [INFO ] [TID:139733659518784] [-] Accepted connection from 127.0.0.1:54718
+[2026-06-07 12:09:58] [INFO ] [TID:139733651695296] [127.0.0.1:54718] Client connected
+[2026-06-07 12:09:58] [INFO ] [TID:139733651695296] [127.0.0.1:54718] Version request received: client_version=1 latest_version=3
+[2026-06-07 12:09:58] [INFO ] [TID:139733651695296] [127.0.0.1:54718] Update required, sending notification
+[2026-06-07 12:09:58] [INFO ] [TID:139733651695296] [127.0.0.1:54718] Update file sent successfully (43 bytes)
+[2026-06-07 12:09:58] [INFO ] [TID:139733651695296] [127.0.0.1:54718] Connection closed

@@ -28,3 +28,14 @@
 [2026-06-07 12:01:36] [INFO ] [TID:140189464618816] [client] Connected to server
 [2026-06-07 12:01:36] [INFO ] [TID:140189464618816] [client] Sent version: 3
 [2026-06-07 12:01:36] [INFO ] [TID:140189464618816] [client] Already up to date
+[2026-06-07 12:09:42] [INFO ] [TID:140164645304128] [client] Current version: 1
+[2026-06-07 12:09:42] [INFO ] [TID:140164645304128] [client] Connecting to 127.0.0.1:8080 ...
+[2026-06-07 12:09:42] [ERROR] [TID:140164645304128] [client] connect() failed: Connection refused
+[2026-06-07 12:09:58] [INFO ] [TID:140516865492800] [client] Current version: 1
+[2026-06-07 12:09:58] [INFO ] [TID:140516865492800] [client] Connecting to 127.0.0.1:8080 ...
+[2026-06-07 12:09:58] [INFO ] [TID:140516865492800] [client] Connected to server
+[2026-06-07 12:09:58] [INFO ] [TID:140516865492800] [client] Sent version: 1
+[2026-06-07 12:09:58] [INFO ] [TID:140516865492800] [client] Update available — file size: 43 bytes
+[2026-06-07 12:09:58] [INFO ] [TID:140516865492800] [client] Update file size: 43 bytes
+[2026-06-07 12:09:58] [INFO ] [TID:140516865492800] [client] Download complete: 43 bytes saved to client/downloaded_update.pkg
+[2026-06-07 12:09:59] [INFO ] [TID:140516865492800] [client] Version updated to 3
