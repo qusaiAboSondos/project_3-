@@ -68,7 +68,7 @@ static const char *state_label(ClientState s) {
 static void draw_client_card(int col, int row, ClientInfo *ci) {
     float pad = 20.0f;
     float x = pad + col * (CARD_W + pad);
-    float y = WIN_H - 170.0f - row * (CARD_H + pad);
+    float y = WIN_H - 200.0f - row * (CARD_H + pad);
 
     float r, g, b;
     state_color(ci->state, &r, &g, &b);
@@ -126,7 +126,7 @@ static void draw_server_panel(void) {
 }
 
 static void draw_legend(void) {
-    float x = 10, y = 80;
+    float x = 10, y = 100;
     glColor3f(0.7f, 0.7f, 0.7f);
     draw_text(x, y, "Legend:");
 
