@@ -1,0 +1,43 @@
+[2026-06-07 12:13:26] [INFO ] [TID:140700396767040] [-] Server starting on port 8080
+[2026-06-07 12:13:26] [INFO ] [TID:140700396767040] [-] Server listening. Latest version: 3
+[2026-06-07 12:13:27] [INFO ] [TID:140700396767040] [-] Accepted connection from 127.0.0.1:52700
+[2026-06-07 12:13:27] [INFO ] [TID:140700392629952] [127.0.0.1:52700] Client connected
+[2026-06-07 12:13:27] [INFO ] [TID:140700392629952] [127.0.0.1:52700] Version request received: client_version=1 latest_version=3
+[2026-06-07 12:13:27] [INFO ] [TID:140700392629952] [127.0.0.1:52700] Update required, sending notification
+[2026-06-07 12:13:27] [INFO ] [TID:140700392629952] [127.0.0.1:52700] Update file sent successfully (43 bytes)
+[2026-06-07 12:13:27] [INFO ] [TID:140700392629952] [127.0.0.1:52700] Connection closed
+[2026-06-07 12:13:28] [INFO ] [TID:140700396767040] [-] Accepted connection from 127.0.0.1:52714
+[2026-06-07 12:13:28] [INFO ] [TID:140700392629952] [127.0.0.1:52714] Client connected
+[2026-06-07 12:13:28] [INFO ] [TID:140700392629952] [127.0.0.1:52714] Version request received: client_version=3 latest_version=3
+[2026-06-07 12:13:28] [INFO ] [TID:140700392629952] [127.0.0.1:52714] Client is up to date
+[2026-06-07 12:13:28] [INFO ] [TID:140700392629952] [127.0.0.1:52714] Connection closed
+[2026-06-07 12:13:28] [INFO ] [TID:140316301313856] [-] Server starting on port 8080
+[2026-06-07 12:13:28] [INFO ] [TID:140316301313856] [-] Server listening. Latest version: 3
+[2026-06-07 12:13:29] [INFO ] [TID:140316301313856] [-] Accepted connection from 127.0.0.1:52730
+[2026-06-07 12:13:29] [INFO ] [TID:140316297144000] [127.0.0.1:52730] Client connected
+[2026-06-07 12:13:29] [INFO ] [TID:140316297144000] [127.0.0.1:52730] Version request received: client_version=1 latest_version=3
+[2026-06-07 12:13:29] [INFO ] [TID:140316297144000] [127.0.0.1:52730] Update required, sending notification
+[2026-06-07 12:13:29] [INFO ] [TID:140316297144000] [127.0.0.1:52730] Update file sent successfully (43 bytes)
+[2026-06-07 12:13:29] [INFO ] [TID:140316297144000] [127.0.0.1:52730] Connection closed
+[2026-06-07 12:13:29] [INFO ] [TID:140316301313856] [-] Accepted connection from 127.0.0.1:52738
+[2026-06-07 12:13:29] [INFO ] [TID:140316297144000] [127.0.0.1:52738] Client connected
+[2026-06-07 12:13:29] [INFO ] [TID:140316297144000] [127.0.0.1:52738] Version request received: client_version=3 latest_version=3
+[2026-06-07 12:13:29] [INFO ] [TID:140316297144000] [127.0.0.1:52738] Client is up to date
+[2026-06-07 12:13:29] [INFO ] [TID:140316297144000] [127.0.0.1:52738] Connection closed
+[2026-06-07 12:13:29] [INFO ] [TID:140316301313856] [-] Accepted connection from 127.0.0.1:52750
+[2026-06-07 12:13:29] [INFO ] [TID:140316297144000] [127.0.0.1:52750] Client connected
+[2026-06-07 12:13:29] [INFO ] [TID:140316297144000] [127.0.0.1:52750] Version request received: client_version=1 latest_version=3
+[2026-06-07 12:13:29] [INFO ] [TID:140316297144000] [127.0.0.1:52750] Update required, sending notification
+[2026-06-07 12:13:29] [INFO ] [TID:140316297144000] [127.0.0.1:52750] Update file sent successfully (43 bytes)
+[2026-06-07 12:13:29] [INFO ] [TID:140316297144000] [127.0.0.1:52750] Connection closed
+[2026-06-07 12:13:29] [INFO ] [TID:140316301313856] [-] Accepted connection from 127.0.0.1:52760
+[2026-06-07 12:13:29] [INFO ] [TID:140316297144000] [127.0.0.1:52760] Client connected
+[2026-06-07 12:13:29] [INFO ] [TID:140316297144000] [127.0.0.1:52760] Version request received: client_version=3 latest_version=3
+[2026-06-07 12:13:29] [INFO ] [TID:140316297144000] [127.0.0.1:52760] Client is up to date
+[2026-06-07 12:13:29] [INFO ] [TID:140316297144000] [127.0.0.1:52760] Connection closed
+[2026-06-07 12:13:29] [INFO ] [TID:140316301313856] [-] Accepted connection from 127.0.0.1:52762
+[2026-06-07 12:13:29] [INFO ] [TID:140316297144000] [127.0.0.1:52762] Client connected
+[2026-06-07 12:13:29] [INFO ] [TID:140316297144000] [127.0.0.1:52762] Version request received: client_version=1 latest_version=3
+[2026-06-07 12:13:29] [INFO ] [TID:140316297144000] [127.0.0.1:52762] Update required, sending notification
+[2026-06-07 12:13:29] [INFO ] [TID:140316297144000] [127.0.0.1:52762] Update file sent successfully (43 bytes)
+[2026-06-07 12:13:29] [INFO ] [TID:140316297144000] [127.0.0.1:52762] Connection closed
