@@ -112,8 +112,7 @@ int CheckForUpdate(const Config *cfg) {
         return -1;
     }
 
-    LOG_INFO_EV("client", "Update available — file size: %ld bytes", expected_size);
-    LOG_INFO_EV("client", "Update file size: %ld bytes", expected_size);
+    LOG_INFO_EV("client", "Update available — downloading %ld bytes", expected_size);
 
     /* --- receive and save update file --- */
     const char *save_path = config_get(cfg, "DOWNLOAD_PATH", "client/downloaded_update.pkg");

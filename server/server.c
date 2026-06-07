@@ -91,7 +91,9 @@ void *handle_client(void *arg) {
 
     } else {
         LOG_INFO_EV(client_info, "Client is up to date");
-        send(ca->client_fd, MSG_UP_TO_DATE, strlen(MSG_UP_TO_DATE), 0);
+        char up2date_msg[32];
+        snprintf(up2date_msg, sizeof(up2date_msg), "%s\n", MSG_UP_TO_DATE);
+        send(ca->client_fd, up2date_msg, strlen(up2date_msg), 0);
         shared_state_set(ca->client_id, CS_UP_TO_DATE, client_version, 1.0f, ca->client_ip);
     }
 

@@ -1,41 +1,12 @@
-[2026-06-07 12:00:04] [INFO ] [TID:139934004553536] [client] Current version: 1
-[2026-06-07 12:00:04] [INFO ] [TID:139934004553536] [client] Connecting to 127.0.0.1:8080 ...
-[2026-06-07 12:00:04] [INFO ] [TID:139934004553536] [client] Connected to server
-[2026-06-07 12:00:04] [INFO ] [TID:139934004553536] [client] Sent version: 1
-[2026-06-07 12:00:04] [ERROR] [TID:139934004553536] [client] Unknown server response: UPDATE_AVAILABLE43
-[2026-06-07 12:00:34] [INFO ] [TID:140555813336896] [client] Current version: 1
-[2026-06-07 12:00:34] [INFO ] [TID:140555813336896] [client] Connecting to 127.0.0.1:8080 ...
-[2026-06-07 12:00:34] [INFO ] [TID:140555813336896] [client] Connected to server
-[2026-06-07 12:00:34] [INFO ] [TID:140555813336896] [client] Sent version: 1
-[2026-06-07 12:00:34] [ERROR] [TID:140555813336896] [client] Unknown server response: UPDATE_AVAILABLE43
-[2026-06-07 12:00:45] [INFO ] [TID:140616922552128] [client] Current version: 1
-[2026-06-07 12:00:45] [INFO ] [TID:140616922552128] [client] Connecting to 127.0.0.1:8080 ...
-[2026-06-07 12:00:45] [INFO ] [TID:140616922552128] [client] Connected to server
-[2026-06-07 12:00:45] [INFO ] [TID:140616922552128] [client] Sent version: 1
-[2026-06-07 12:00:45] [INFO ] [TID:140616922552128] [client] Update available — file size: 43 bytes
-[2026-06-07 12:00:45] [INFO ] [TID:140616922552128] [client] Update file size: 43 bytes
-[2026-06-07 12:00:45] [ERROR] [TID:140616922552128] [client] Connection lost during download (received 0/43)
-[2026-06-07 12:01:27] [INFO ] [TID:140521205937984] [client] Current version: 1
-[2026-06-07 12:01:27] [INFO ] [TID:140521205937984] [client] Connecting to 127.0.0.1:8080 ...
-[2026-06-07 12:01:27] [INFO ] [TID:140521205937984] [client] Connected to server
-[2026-06-07 12:01:27] [INFO ] [TID:140521205937984] [client] Sent version: 1
-[2026-06-07 12:01:27] [INFO ] [TID:140521205937984] [client] Update available — file size: 43 bytes
-[2026-06-07 12:01:27] [INFO ] [TID:140521205937984] [client] Update file size: 43 bytes
-[2026-06-07 12:01:27] [INFO ] [TID:140521205937984] [client] Download complete: 43 bytes saved to client/downloaded_update.pkg
-[2026-06-07 12:01:28] [INFO ] [TID:140521205937984] [client] Version updated to 3
-[2026-06-07 12:01:36] [INFO ] [TID:140189464618816] [client] Current version: 3
-[2026-06-07 12:01:36] [INFO ] [TID:140189464618816] [client] Connecting to 127.0.0.1:8080 ...
-[2026-06-07 12:01:36] [INFO ] [TID:140189464618816] [client] Connected to server
-[2026-06-07 12:01:36] [INFO ] [TID:140189464618816] [client] Sent version: 3
-[2026-06-07 12:01:36] [INFO ] [TID:140189464618816] [client] Already up to date
-[2026-06-07 12:09:42] [INFO ] [TID:140164645304128] [client] Current version: 1
-[2026-06-07 12:09:42] [INFO ] [TID:140164645304128] [client] Connecting to 127.0.0.1:8080 ...
-[2026-06-07 12:09:42] [ERROR] [TID:140164645304128] [client] connect() failed: Connection refused
-[2026-06-07 12:09:58] [INFO ] [TID:140516865492800] [client] Current version: 1
-[2026-06-07 12:09:58] [INFO ] [TID:140516865492800] [client] Connecting to 127.0.0.1:8080 ...
-[2026-06-07 12:09:58] [INFO ] [TID:140516865492800] [client] Connected to server
-[2026-06-07 12:09:58] [INFO ] [TID:140516865492800] [client] Sent version: 1
-[2026-06-07 12:09:58] [INFO ] [TID:140516865492800] [client] Update available — file size: 43 bytes
-[2026-06-07 12:09:58] [INFO ] [TID:140516865492800] [client] Update file size: 43 bytes
-[2026-06-07 12:09:58] [INFO ] [TID:140516865492800] [client] Download complete: 43 bytes saved to client/downloaded_update.pkg
-[2026-06-07 12:09:59] [INFO ] [TID:140516865492800] [client] Version updated to 3
+[2026-06-07 12:13:27] [INFO ] [TID:140215110600512] [client] Current version: 1
+[2026-06-07 12:13:27] [INFO ] [TID:140215110600512] [client] Connecting to 127.0.0.1:8080 ...
+[2026-06-07 12:13:27] [INFO ] [TID:140215110600512] [client] Connected to server
+[2026-06-07 12:13:27] [INFO ] [TID:140215110600512] [client] Sent version: 1
+[2026-06-07 12:13:27] [INFO ] [TID:140215110600512] [client] Update available — downloading 43 bytes
+[2026-06-07 12:13:27] [INFO ] [TID:140215110600512] [client] Download complete: 43 bytes saved to client/downloaded_update.pkg
+[2026-06-07 12:13:28] [INFO ] [TID:140215110600512] [client] Version updated to 3
+[2026-06-07 12:13:28] [INFO ] [TID:139928737716032] [client] Current version: 3
+[2026-06-07 12:13:28] [INFO ] [TID:139928737716032] [client] Connecting to 127.0.0.1:8080 ...
+[2026-06-07 12:13:28] [INFO ] [TID:139928737716032] [client] Connected to server
+[2026-06-07 12:13:28] [INFO ] [TID:139928737716032] [client] Sent version: 3
+[2026-06-07 12:13:28] [INFO ] [TID:139928737716032] [client] Already up to date
