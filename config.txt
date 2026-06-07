@@ -14,5 +14,10 @@ UPDATE_FILE=updates/update_v3.pkg
 LOG_FILE=logs/server.log
 LOG_LEVEL=INFO
 
+# Client settings
+VERSION_FILE=client/current_version.txt
+CLIENT_LOG=logs/client.log
+DOWNLOAD_PATH=client/downloaded_update.pkg
+
 # Transfer settings
 BUFFER_SIZE=4096

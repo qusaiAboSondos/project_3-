@@ -41,8 +41,6 @@ void *handle_client(void *arg) {
     if (client_version < ca->latest_version) {
         LOG_INFO_EV(client_info, "Update required, sending notification");
 
-        send(ca->client_fd, MSG_UPDATE_AVAILABLE, strlen(MSG_UPDATE_AVAILABLE), 0);
-
         /* 3. Send update file */
         FILE *f = fopen(ca->update_file, "rb");
         if (!f) {
@@ -50,15 +48,14 @@ void *handle_client(void *arg) {
             goto cleanup;
         }
 
-        /* send file size first */
         fseek(f, 0, SEEK_END);
         long fsize = ftell(f);
         rewind(f);
 
-        char size_buf[32];
-        snprintf(size_buf, sizeof(size_buf), "%ld", fsize);
-        send(ca->client_fd, size_buf, strlen(size_buf), 0);
-        usleep(50000); /* small gap so client reads size separately */
+        /* send "UPDATE_AVAILABLE:<size>\n" as one atomic message */
+        char header[64];
+        snprintf(header, sizeof(header), "%s:%ld\n", MSG_UPDATE_AVAILABLE, fsize);
+        send(ca->client_fd, header, strlen(header), 0);
 
         char *transfer_buf = malloc(ca->buffer_size);
         if (!transfer_buf) { fclose(f); goto cleanup; }
