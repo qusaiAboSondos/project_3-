@@ -68,7 +68,7 @@ static const char *state_label(ClientState s) {
 static void draw_client_card(int col, int row, ClientInfo *ci) {
     float pad = 20.0f;
     float x = pad + col * (CARD_W + pad);
-    float y = WIN_H - 120.0f - row * (CARD_H + pad);
+    float y = WIN_H - 170.0f - row * (CARD_H + pad);
 
     float r, g, b;
     state_color(ci->state, &r, &g, &b);
@@ -109,20 +109,20 @@ static void draw_client_card(int col, int row, ClientInfo *ci) {
 }
 
 static void draw_server_panel(void) {
-    draw_rect_filled(0, WIN_H - 60, WIN_W, 60, 0.1f, 0.1f, 0.2f);
-    draw_rect_outline(0, WIN_H - 60, WIN_W, 60, 0.3f, 0.5f, 0.9f);
+    draw_rect_filled(0, WIN_H - 70, WIN_W, 70, 0.1f, 0.1f, 0.2f);
+    draw_rect_outline(0, WIN_H - 70, WIN_W, 70, 0.3f, 0.5f, 0.9f);
 
     glColor3f(0.5f, 0.8f, 1.0f);
-    draw_text(10, WIN_H - 22, "UPDATE SERVER");
+    draw_text(200, WIN_H - 25, "SOFTWARE UPDATE FRAMEWORK - SERVER MONITOR");
 
     pthread_mutex_lock(&g_state.lock);
-    char buf[64];
-    snprintf(buf, sizeof(buf), "Latest version: %d   Active clients: %d",
+    char buf[80];
+    snprintf(buf, sizeof(buf), "Latest version: %d      Active clients: %d",
              g_state.latest_version, g_state.count);
     pthread_mutex_unlock(&g_state.lock);
 
     glColor3f(0.8f, 0.8f, 0.8f);
-    draw_text(10, WIN_H - 42, buf);
+    draw_text(200, WIN_H - 48, buf);
 }
 
 static void draw_legend(void) {
