@@ -14,12 +14,21 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <signal.h>
 
 #define MSG_UPDATE_AVAILABLE  "UPDATE_AVAILABLE"
 #define MSG_UP_TO_DATE        "UP_TO_DATE"
 
 static int g_client_id_counter = 0;
 static pthread_mutex_t g_id_lock = PTHREAD_MUTEX_INITIALIZER;
+static volatile int g_running = 1;
+static int g_server_fd = -1;
+
+static void handle_sigint(int sig) {
+    (void)sig;
+    g_running = 0;
+    if (g_server_fd >= 0) close(g_server_fd);
+}
 
 /* ---------- per-client thread ---------- */
 
@@ -119,7 +128,11 @@ int start_server(const Config *cfg) {
     shared_state_init(latest_ver);
     LOG_INFO_EV(NULL, "Server starting on port %d", port);
 
+    signal(SIGINT,  handle_sigint);
+    signal(SIGTERM, handle_sigint);
+
     int server_fd = socket(AF_INET, SOCK_STREAM, 0);
+    g_server_fd = server_fd;
     if (server_fd < 0) {
         LOG_ERROR_EV(NULL, "socket() failed: %s", strerror(errno));
         return -1;
@@ -147,11 +160,12 @@ int start_server(const Config *cfg) {
 
     LOG_INFO_EV(NULL, "Server listening. Latest version: %d", latest_ver);
 
-    while (1) {
+    while (g_running) {
         struct sockaddr_in client_addr;
         socklen_t addr_len = sizeof(client_addr);
         int client_fd = accept(server_fd, (struct sockaddr *)&client_addr, &addr_len);
         if (client_fd < 0) {
+            if (!g_running) break;
             LOG_WARN_EV(NULL, "accept() failed: %s", strerror(errno));
             continue;
         }
