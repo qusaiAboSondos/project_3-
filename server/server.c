@@ -6,6 +6,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include <string.h>
 #include <unistd.h>
 #include <errno.h>
@@ -166,9 +167,13 @@ int start_server(const Config *cfg) {
         ca->client_id = ++g_client_id_counter;
         pthread_mutex_unlock(&g_id_lock);
 
-        shared_state_set(ca->client_id, CS_CONNECTING, 0, 0.0f, NULL);
+        /* generate a unique display IP for the visualizer (192.168.x.x) */
+        srand((unsigned)(time(NULL) ^ ca->client_id * 2654435761U));
+        snprintf(ca->client_ip, sizeof(ca->client_ip), "192.168.%d.%d",
+                 1 + rand() % 254, 1 + rand() % 254);
+
+        shared_state_set(ca->client_id, CS_CONNECTING, 0, 0.0f, ca->client_ip);
         strncpy(ca->update_file, upfile, sizeof(ca->update_file) - 1);
-        inet_ntop(AF_INET, &client_addr.sin_addr, ca->client_ip, sizeof(ca->client_ip));
         ca->client_port = ntohs(client_addr.sin_port);
 
         LOG_INFO_EV(NULL, "Accepted connection from %s:%d", ca->client_ip, ca->client_port);

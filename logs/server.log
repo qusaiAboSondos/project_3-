@@ -41,3 +41,23 @@
 [2026-06-07 12:13:29] [INFO ] [TID:140316297144000] [127.0.0.1:52762] Update required, sending notification
 [2026-06-07 12:13:29] [INFO ] [TID:140316297144000] [127.0.0.1:52762] Update file sent successfully (43 bytes)
 [2026-06-07 12:13:29] [INFO ] [TID:140316297144000] [127.0.0.1:52762] Connection closed
+[2026-06-08 12:46:19] [INFO ] [TID:140163034474304] [-] Server starting on port 8080
+[2026-06-08 12:46:19] [INFO ] [TID:140163034474304] [-] Server listening. Latest version: 3
+[2026-06-08 12:46:20] [INFO ] [TID:140163034474304] [-] Accepted connection from 192.168.197.151:37684
+[2026-06-08 12:46:20] [INFO ] [TID:140163026790080] [192.168.197.151:37684] Client connected
+[2026-06-08 12:46:20] [INFO ] [TID:140163026790080] [192.168.197.151:37684] Version request received: client_version=1 latest_version=3
+[2026-06-08 12:46:20] [INFO ] [TID:140163026790080] [192.168.197.151:37684] Update required, sending notification
+[2026-06-08 12:46:20] [INFO ] [TID:140163026790080] [192.168.197.151:37684] Update file sent successfully (43 bytes)
+[2026-06-08 12:46:20] [INFO ] [TID:140163026790080] [192.168.197.151:37684] Connection closed
+[2026-06-08 12:46:20] [INFO ] [TID:140163034474304] [-] Accepted connection from 192.168.227.113:37692
+[2026-06-08 12:46:20] [INFO ] [TID:140163026790080] [192.168.227.113:37692] Client connected
+[2026-06-08 12:46:20] [INFO ] [TID:140163026790080] [192.168.227.113:37692] Version request received: client_version=1 latest_version=3
+[2026-06-08 12:46:20] [INFO ] [TID:140163026790080] [192.168.227.113:37692] Update required, sending notification
+[2026-06-08 12:46:20] [INFO ] [TID:140163026790080] [192.168.227.113:37692] Update file sent successfully (43 bytes)
+[2026-06-08 12:46:20] [INFO ] [TID:140163026790080] [192.168.227.113:37692] Connection closed
+[2026-06-08 12:46:20] [INFO ] [TID:140163034474304] [-] Accepted connection from 192.168.106.6:37696
+[2026-06-08 12:46:20] [INFO ] [TID:140163026790080] [192.168.106.6:37696] Client connected
+[2026-06-08 12:46:20] [INFO ] [TID:140163026790080] [192.168.106.6:37696] Version request received: client_version=1 latest_version=3
+[2026-06-08 12:46:20] [INFO ] [TID:140163026790080] [192.168.106.6:37696] Update required, sending notification
+[2026-06-08 12:46:20] [INFO ] [TID:140163026790080] [192.168.106.6:37696] Update file sent successfully (43 bytes)
+[2026-06-08 12:46:20] [INFO ] [TID:140163026790080] [192.168.106.6:37696] Connection closed
